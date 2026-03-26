@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  jolly-admin:
+    build: .
+    ports:
+      - "30000:30000"
+      - "18789:18789"
+    volumes:
+      - jolly-data:/app/data
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  jolly-data:
